@@ -13,9 +13,10 @@ class SentMemesTableViewController: UITableViewController {
     var memes: [Meme]!
 
     override func viewWillAppear(animated: Bool) {
-        let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
-        memes = applicationDelegate.memes
-        self.tabBarController?.selectedIndex = 0
+        //Get the send memes list
+        memes = (UIApplication.sharedApplication().delegate as! AppDelegate).memes
+        //if nothing in history, go to send new Meme view
+        if memes.count == 0 { sendMeme() }
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,9 +41,13 @@ class SentMemesTableViewController: UITableViewController {
         self.navigationController?.pushViewController(selectedRow, animated: true)
     }
     
-    @IBAction func goToSendMemeView(sender: UIBarButtonItem) {
+    func sendMeme() {
         var nextController = ImagePickViewController()
         nextController = self.storyboard?.instantiateViewControllerWithIdentifier("ImagePicker") as! ImagePickViewController
         self.presentViewController(nextController, animated: true, completion: nil)
+    }
+    
+    @IBAction func goToSendMemeView(sender: UIBarButtonItem) {
+        sendMeme()
     }
 }
