@@ -17,6 +17,8 @@ class SentMemesCollectionViewController: UICollectionViewController {
     override func viewWillAppear(animated: Bool) {
         let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         memes = applicationDelegate.memes
+        //if nothing in history, go to send new Meme view
+        if memes.count == 0 { goToMemeEditor() }
     }
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -38,9 +40,12 @@ class SentMemesCollectionViewController: UICollectionViewController {
         self.navigationController?.pushViewController(selectedItem, animated: true)
     }
     
+    func goToMemeEditor() {
+        self.tabBarController?.removeFromParentViewController()
+        self.performSegueWithIdentifier("MemeEditor", sender: self)
+    }
+    
     @IBAction func goToSendMemeView(sender: UIBarButtonItem) {
-        var nextController = ImagePickViewController()
-        nextController = self.storyboard?.instantiateViewControllerWithIdentifier("ImagePicker") as! ImagePickViewController
-        self.presentViewController(nextController, animated: true, completion: nil)
+        goToMemeEditor()
     }
 }

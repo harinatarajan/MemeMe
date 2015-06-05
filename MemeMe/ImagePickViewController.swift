@@ -48,9 +48,6 @@ class ImagePickViewController: UIViewController, UIImagePickerControllerDelegate
         enableShareMeme = false
         //Show toolbar and navbar
         self.tabBarController?.tabBar.hidden = true
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationController?.setToolbarHidden(false, animated: true)
-
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -136,9 +133,9 @@ class ImagePickViewController: UIViewController, UIImagePickerControllerDelegate
                 // Add it to the memes array in the Application Delegate
                 (UIApplication.sharedApplication().delegate as!
                     AppDelegate).memes.append(firstActivityItem)
-                var nextController = SentMemesTableViewController()
-                nextController = self.storyboard?.instantiateViewControllerWithIdentifier("SentMemesTable") as! SentMemesTableViewController
-                self.presentViewController(nextController, animated: true, completion: nil)
+                self.navigationController?.removeFromParentViewController()
+                self.removeFromParentViewController()
+                self.performSegueWithIdentifier("SentTabBar", sender: self)
             }
         }
     }

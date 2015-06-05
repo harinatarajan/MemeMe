@@ -16,7 +16,7 @@ class SentMemesTableViewController: UITableViewController {
         //Get the send memes list
         memes = (UIApplication.sharedApplication().delegate as! AppDelegate).memes
         //if nothing in history, go to send new Meme view
-        if memes.count == 0 { sendMeme() }
+        if memes.count == 0 { goToMemeEditor() }
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,13 +41,10 @@ class SentMemesTableViewController: UITableViewController {
         self.navigationController?.pushViewController(selectedRow, animated: true)
     }
     
-    func sendMeme() {
-        var nextController = ImagePickViewController()
-        nextController = self.storyboard?.instantiateViewControllerWithIdentifier("ImagePicker") as! ImagePickViewController
-        self.presentViewController(nextController, animated: true, completion: nil)
+    func goToMemeEditor() {
+        self.tabBarController?.removeFromParentViewController()
+        self.performSegueWithIdentifier("MemeEditor", sender: self)
     }
     
-    @IBAction func goToSendMemeView(sender: UIBarButtonItem) {
-        sendMeme()
-    }
+    @IBAction func startMemeEditor(sender: UIBarButtonItem) { goToMemeEditor() }
 }

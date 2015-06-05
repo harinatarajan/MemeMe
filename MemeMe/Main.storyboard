@@ -8,9 +8,9 @@
         <!--Sent Memes Collection-->
         <scene sceneID="ONQ-6d-f6w">
             <objects>
-                <collectionViewController title="Sent Memes Collection" id="Etd-1D-6sa" customClass="SentMemesCollectionViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" title="Sent Memes Collection" hidesBottomBarWhenPushed="YES" id="Etd-1D-6sa" customClass="SentMemesCollectionViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" id="dZQ-bz-Atg">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MTG-pj-A24">
@@ -64,6 +64,7 @@
                             </collectionViewCell>
                         </cells>
                     </collectionView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="7Rj-OI-04u">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="BqV-RP-ZYa">
                             <connections>
@@ -71,6 +72,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="Nzq-QA-idu" kind="show" identifier="MemeEditor" id="bQL-Gp-6VU"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iks-5W-0BH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -131,30 +135,30 @@
         <!--Send-->
         <scene sceneID="5Vw-YX-Oyf">
             <objects>
-                <viewController storyboardIdentifier="ImagePicker" title="Send" id="zbH-vT-569" customClass="ImagePickViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImagePicker" autoresizesArchivedViewToFullSize="NO" title="Send" hidesBottomBarWhenPushed="YES" id="zbH-vT-569" customClass="ImagePickViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kWu-Hh-lpW"/>
                         <viewControllerLayoutGuide type="bottom" id="OCW-GC-Puu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Lma-0f-5GV">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lnq-Ge-YAL">
-                                <rect key="frame" x="143" y="229" width="314" height="270"/>
+                                <rect key="frame" x="143" y="111" width="314" height="270"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="270" id="Ik1-4r-KNj"/>
                                     <constraint firstAttribute="width" constant="314" id="WkZ-mL-gaR"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="BOTTOM" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gqX-rm-4kJ">
-                                <rect key="frame" x="259" y="458" width="82" height="30"/>
+                                <rect key="frame" x="259" y="351" width="82" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TOP" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1zX-cl-CaN">
-                                <rect key="frame" x="275" y="240" width="50" height="30"/>
+                                <rect key="frame" x="275" y="111" width="50" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
@@ -163,13 +167,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="OCW-GC-Puu" firstAttribute="top" secondItem="gqX-rm-4kJ" secondAttribute="bottom" constant="198" id="47n-G2-JzO"/>
-                            <constraint firstItem="gqX-rm-4kJ" firstAttribute="top" secondItem="lnq-Ge-YAL" secondAttribute="bottom" constant="-41" id="GXq-ZZ-KX8"/>
+                            <constraint firstItem="gqX-rm-4kJ" firstAttribute="top" secondItem="lnq-Ge-YAL" secondAttribute="bottom" constant="-30" id="GXq-ZZ-KX8"/>
                             <constraint firstItem="gqX-rm-4kJ" firstAttribute="top" secondItem="lnq-Ge-YAL" secondAttribute="bottom" constant="8" symbolic="YES" id="Hws-Hf-mLg"/>
                             <constraint firstAttribute="centerX" secondItem="gqX-rm-4kJ" secondAttribute="centerX" id="R0E-rF-kgf"/>
+                            <constraint firstAttribute="centerY" secondItem="lnq-Ge-YAL" secondAttribute="centerY" id="TTM-U5-syq"/>
                             <constraint firstAttribute="centerX" secondItem="1zX-cl-CaN" secondAttribute="centerX" id="Z7E-Oj-7UU"/>
-                            <constraint firstItem="lnq-Ge-YAL" firstAttribute="top" secondItem="kWu-Hh-lpW" secondAttribute="bottom" constant="165" id="aIP-kC-OjN"/>
                             <constraint firstAttribute="centerX" secondItem="lnq-Ge-YAL" secondAttribute="centerX" id="qqK-eh-sD5"/>
-                            <constraint firstItem="lnq-Ge-YAL" firstAttribute="top" secondItem="1zX-cl-CaN" secondAttribute="bottom" constant="-41" id="s7o-wN-3wA"/>
+                            <constraint firstItem="lnq-Ge-YAL" firstAttribute="top" secondItem="1zX-cl-CaN" secondAttribute="bottom" constant="-30" id="s7o-wN-3wA"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -178,20 +182,21 @@
                             </mask>
                         </variation>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="GU0-Av-HxZ"/>
-                        <barButtonItem title="Album" id="ZqK-fV-Wj4">
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="oxM-eu-zGE"/>
+                        <barButtonItem title="Album" id="g7d-oh-Zj4">
                             <connections>
-                                <action selector="pickAnImageFromAlbum:" destination="zbH-vT-569" id="bAL-nT-wSq"/>
+                                <action selector="pickAnImageFromAlbum:" destination="zbH-vT-569" id="gOP-0D-5Nx"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="uFc-rg-fiK"/>
-                        <barButtonItem systemItem="camera" id="wes-CI-Bi1">
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="yvh-s6-hGL"/>
+                        <barButtonItem systemItem="camera" id="Ere-qb-Chx">
                             <connections>
-                                <action selector="pickImageFromCamera:" destination="zbH-vT-569" id="Ouz-gG-HAf"/>
+                                <action selector="pickImageFromCamera:" destination="zbH-vT-569" id="d0l-B6-rI3"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="BhO-Bb-P6T"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="jEr-VH-MS6"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="zYw-Bl-E9s">
                         <nil key="title"/>
@@ -208,10 +213,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bottomTextField" destination="gqX-rm-4kJ" id="Tql-ie-pVU"/>
-                        <outlet property="cameraButton" destination="wes-CI-Bi1" id="5vw-0t-OIp"/>
+                        <outlet property="cameraButton" destination="Ere-qb-Chx" id="d24-TO-xnI"/>
                         <outlet property="imageView" destination="lnq-Ge-YAL" id="dWL-Ku-5Nv"/>
                         <outlet property="shareMeme" destination="mkm-Ie-Yro" id="MR3-dS-Ktn"/>
                         <outlet property="topTextField" destination="1zX-cl-CaN" id="aD5-3K-wBt"/>
+                        <segue destination="Pty-Qi-JHF" kind="show" identifier="SentTabBar" id="Eym-gf-xoh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KBu-K2-57w" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -221,9 +227,9 @@
         <!--Sent Memes Table-->
         <scene sceneID="15F-I3-Jty">
             <objects>
-                <tableViewController storyboardIdentifier="SentMemesTable" title="Sent Memes Table" id="BhS-il-dQB" customClass="SentMemesTableViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SentMemesTable" autoresizesArchivedViewToFullSize="NO" title="Sent Memes Table" hidesBottomBarWhenPushed="YES" id="BhS-il-dQB" customClass="SentMemesTableViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="TYy-DF-IvU">
-                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                         <prototypes>
@@ -251,10 +257,13 @@
                     <navigationItem key="navigationItem" id="4bD-IX-Xqk">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="n3m-bZ-0MT">
                             <connections>
-                                <action selector="goToSendMemeView:" destination="BhS-il-dQB" id="Old-Lu-Zb6"/>
+                                <action selector="startMemeEditor:" destination="BhS-il-dQB" id="o9e-Oc-iij"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="Nzq-QA-idu" kind="show" identifier="MemeEditor" id="67Y-fT-BcD"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fr0-PT-Gez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -263,7 +272,7 @@
         <!--Collection-->
         <scene sceneID="3XF-Cj-o3J">
             <objects>
-                <navigationController id="cpw-id-PZF" sceneMemberID="viewController">
+                <navigationController autoresizesArchivedViewToFullSize="NO" hidesBottomBarWhenPushed="YES" id="cpw-id-PZF" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" tag="1" title="Collection" id="BBi-pz-QXJ"/>
                     <toolbarItems/>
@@ -272,6 +281,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="3WG-5i-FZQ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="Etd-1D-6sa" kind="relationship" relationship="rootViewController" id="iG0-IC-ga1"/>
                     </connections>
@@ -283,11 +295,11 @@
         <!--Tab Bar Controller-->
         <scene sceneID="hWH-l5-tit">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="GdS-fk-q2o" sceneMemberID="viewController">
+                <tabBarController autoresizesArchivedViewToFullSize="NO" hidesBottomBarWhenPushed="YES" id="GdS-fk-q2o" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Yc1-2l-moc"/>
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ISn-zu-yJw">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -304,7 +316,7 @@
         <!--Table-->
         <scene sceneID="b5V-IQ-u03">
             <objects>
-                <navigationController id="Pty-Qi-JHF" sceneMemberID="viewController">
+                <navigationController autoresizesArchivedViewToFullSize="NO" hidesBottomBarWhenPushed="YES" id="Pty-Qi-JHF" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Table" id="Etp-N6-sRe"/>
                     <toolbarItems/>
@@ -327,7 +339,7 @@
         <!--Navigation Controller-->
         <scene sceneID="uz2-Vi-kYk">
             <objects>
-                <navigationController toolbarHidden="NO" id="Nzq-QA-idu" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MemeEditor" autoresizesArchivedViewToFullSize="NO" hidesBottomBarWhenPushed="YES" toolbarHidden="NO" id="Nzq-QA-idu" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LLP-Iw-QId">
@@ -347,4 +359,8 @@
             <point key="canvasLocation" x="2362" y="-470"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Eym-gf-xoh"/>
+        <segue reference="67Y-fT-BcD"/>
+    </inferredMetricsTieBreakers>
 </document>
