@@ -7,18 +7,15 @@
 //
 
 import UIKit
-
+//Called from the table or collection view controllers, when the 
+//user selects a shared meme
 class DetailViewController: UIViewController {
 
-    @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var imageV: UIImageView!
-    @IBOutlet weak var bottomLabel: UILabel!
     
     var meme: Meme!
     
     override func viewWillAppear(animated: Bool) {
-        self.topLabel.text = meme.top
-        self.bottomLabel.text = meme.bottom
-        self.imageV.image = meme.image
+        self.imageV.image = meme.memedImage
     }
 }

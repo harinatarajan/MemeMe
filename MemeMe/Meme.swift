@@ -10,9 +10,17 @@ import Foundation
 import UIKit
 
 struct Meme {
-    var top: String!
+    
+    //Selected Image
     var image: UIImage!
+    
+    //Comment at the top of the selected image
+    var top: String!
+    
+    //Comment at the bottom of the selected image
     var bottom: String!
+    
+    //Shared image
     var memedImage: UIImage!
     
     init(top: String, image: UIImage, bottom: String, memedImage: UIImage) {
@@ -23,8 +31,10 @@ struct Meme {
     }
 }
 extension Meme {
+    //Array of shared images
     static var allMemes: [UIImage]!
     
+    //Put and get helper functions
     static func getMemes() -> [UIImage] {
         return allMemes
     }
@@ -34,6 +44,7 @@ extension Meme {
         else { allMemes.append(image) }
     }
     
+    //Array of shared memes
     static var memeArray: [Meme] {
         var mArray = [Meme]()
         return mArray

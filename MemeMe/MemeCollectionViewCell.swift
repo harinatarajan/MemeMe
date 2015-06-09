@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+//This class encapsulates the meme comments and image as a single object;
+//Used by the collection view controller
 class MemeCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var topLabel: UILabel!
@@ -17,6 +18,10 @@ class MemeCollectionViewCell: UICollectionViewCell {
     func setText(top: String!, bottom: String!) {
         self.topLabel.text = top
         self.bottomLabel.text = bottom
+    }
+    
+    func setImage(image: UIImage) {
+        imageView.image = image
     }
     
 }
