@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ImagePickViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ImagePickViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,
+    UITextFieldDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -43,6 +44,7 @@ class ImagePickViewController: UIViewController, UIImagePickerControllerDelegate
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
          //We don’t want the user to accidentally share an unfinished meme, so we want to disable the share button until an image has been chosen
         shareMeme.enabled = enableShareMeme
         enableShareMeme = false
@@ -60,11 +62,27 @@ class ImagePickViewController: UIViewController, UIImagePickerControllerDelegate
             self.view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
+
+    func keyboardWillHide(notification: NSNotification) {
+        if bottomTextField.isFirstResponder() {
+            self.view.frame.origin.y += getKeyboardHeight(notification)
+        }
+    }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.CGRectValue().height
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if (topTextField.isFirstResponder()) {
+            self.topTextField.resignFirstResponder()
+        }
+        if (bottomTextField.isFirstResponder()) {
+            self.bottomTextField.resignFirstResponder()
+        }
+        return true
     }
     
     @IBAction func pickAnImageFromAlbum(sender: UIBarButtonItem) {
@@ -145,6 +163,8 @@ class ImagePickViewController: UIViewController, UIImagePickerControllerDelegate
         self.bottomTextField.text.removeAll(keepCapacity: true)
         self.imageView.image = nil
         shareMeme.enabled = false
+        self.topTextField.resignFirstResponder()
+        self.bottomTextField.resignFirstResponder()
     }
 }
 
