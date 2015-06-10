@@ -184,6 +184,7 @@ class ImagePickViewController: UIViewController, UIImagePickerControllerDelegate
                 // Add this meme item to the memes array saved in the Application Delegate
                 (UIApplication.sharedApplication().delegate as!
                     AppDelegate).memes.append(activityItem)
+                // and show the 'sent memes'
                 self.goToSentView()
             }
         }
@@ -198,12 +199,6 @@ class ImagePickViewController: UIViewController, UIImagePickerControllerDelegate
 
     //When the user presses the cancel button ...
     @IBAction func ClearAll(sender: UIBarButtonItem) {
-//        topTextField.text.removeAll(keepCapacity: true)
-//        bottomTextField.text.removeAll(keepCapacity: true)
-//        imageView.image = nil
-//        shareMeme.enabled = false
-//        topTextField.resignFirstResponder()
-//        bottomTextField.resignFirstResponder()
         goToSentView()
     }
 }
