@@ -16,6 +16,6 @@ class DetailViewController: UIViewController {
     var meme: Meme!
     
     override func viewWillAppear(animated: Bool) {
-        self.imageV.image = meme.memedImage
+        imageV.image = meme.memedImage
     }
 }

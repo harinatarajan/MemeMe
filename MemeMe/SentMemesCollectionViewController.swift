@@ -32,7 +32,7 @@ class SentMemesCollectionViewController: UICollectionViewController {
     //UICollectionView function to return the meme at the selected index
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MemeCollectionViewCell
-        let c = self.memes[indexPath.row]
+        let c = memes[indexPath.row]
         cell.imageView.image = c.image
         cell.setText(c.top, bottom: c.bottom)
         cell.backgroundView = UIImageView(image: c.image)
@@ -42,7 +42,7 @@ class SentMemesCollectionViewController: UICollectionViewController {
     //Open the detail view for the selected meme
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let selectedItem = self.storyboard?.instantiateViewControllerWithIdentifier("MemeDetail") as! DetailViewController
-        selectedItem.meme = self.memes[indexPath.row]
+        selectedItem.meme = memes[indexPath.row]
         self.navigationController?.pushViewController(selectedItem, animated: true)
     }
     

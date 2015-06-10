@@ -101,10 +101,10 @@ class ImagePickViewController: UIViewController, UIImagePickerControllerDelegate
     //set the two textfield.delegate = self
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if (topTextField.isFirstResponder()) {
-            self.topTextField.resignFirstResponder()
+            topTextField.resignFirstResponder()
         }
         if (bottomTextField.isFirstResponder()) {
-            self.bottomTextField.resignFirstResponder()
+            bottomTextField.resignFirstResponder()
         }
         return true
     }
@@ -184,22 +184,27 @@ class ImagePickViewController: UIViewController, UIImagePickerControllerDelegate
                 // Add this meme item to the memes array saved in the Application Delegate
                 (UIApplication.sharedApplication().delegate as!
                     AppDelegate).memes.append(activityItem)
-                // Prepare to go to the tab bar view. Clear the bottom bars, they were piling up
-                self.navigationController?.removeFromParentViewController()
-                self.removeFromParentViewController()
-                self.performSegueWithIdentifier("SentTabBar", sender: self)
+                self.goToSentView()
             }
         }
+    }
+    
+    func goToSentView() {
+        // Prepare to go to the tab bar view. Clear the bottom bars, they were piling up
+        self.navigationController?.removeFromParentViewController()
+        self.removeFromParentViewController()
+        self.performSegueWithIdentifier("SentTabBar", sender: self)
     }
 
     //When the user presses the cancel button ...
     @IBAction func ClearAll(sender: UIBarButtonItem) {
-        self.topTextField.text.removeAll(keepCapacity: true)
-        self.bottomTextField.text.removeAll(keepCapacity: true)
-        self.imageView.image = nil
-        shareMeme.enabled = false
-        self.topTextField.resignFirstResponder()
-        self.bottomTextField.resignFirstResponder()
+//        topTextField.text.removeAll(keepCapacity: true)
+//        bottomTextField.text.removeAll(keepCapacity: true)
+//        imageView.image = nil
+//        shareMeme.enabled = false
+//        topTextField.resignFirstResponder()
+//        bottomTextField.resignFirstResponder()
+        goToSentView()
     }
 }
 

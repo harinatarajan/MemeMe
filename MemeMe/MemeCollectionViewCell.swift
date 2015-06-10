@@ -16,8 +16,8 @@ class MemeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var bottomLabel: UILabel!
     
     func setText(top: String!, bottom: String!) {
-        self.topLabel.text = top
-        self.bottomLabel.text = bottom
+        topLabel.text = top
+        bottomLabel.text = bottom
     }
     
     func setImage(image: UIImage) {

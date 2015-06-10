@@ -65,7 +65,8 @@
                         </cells>
                     </collectionView>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" id="7Rj-OI-04u">
+                    <navigationItem key="navigationItem" title="Sent Memes" id="7Rj-OI-04u">
+                        <barButtonItem key="backBarButtonItem" title="Sent Memes" id="thW-Rn-UvW"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="BqV-RP-ZYa">
                             <connections>
                                 <action selector="goToSendMemeView:" destination="Etd-1D-6sa" id="BG5-QA-u51"/>
@@ -104,6 +105,7 @@
                             <constraint firstItem="sLZ-5d-fgN" firstAttribute="top" secondItem="xeO-tG-QEb" secondAttribute="bottom" id="yzD-Ml-oF0"/>
                         </constraints>
                     </view>
+                    <keyCommands/>
                     <connections>
                         <outlet property="imageV" destination="sLZ-5d-fgN" id="Q9v-ej-Nyp"/>
                     </connections>
@@ -242,7 +244,8 @@
                         </connections>
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" id="4bD-IX-Xqk">
+                    <navigationItem key="navigationItem" title="Sent Memes" id="4bD-IX-Xqk">
+                        <barButtonItem key="backBarButtonItem" title="Sent Memes" id="coR-Ss-D3H"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="n3m-bZ-0MT">
                             <connections>
                                 <action selector="startMemeEditor:" destination="BhS-il-dQB" id="o9e-Oc-iij"/>
@@ -352,6 +355,6 @@
         <image name="Table" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="67Y-fT-BcD"/>
+        <segue reference="bQL-Gp-6VU"/>
     </inferredMetricsTieBreakers>
 </document>
