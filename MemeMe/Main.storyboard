@@ -73,9 +73,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="Nzq-QA-idu" kind="show" identifier="MemeEditor" id="bQL-Gp-6VU"/>
-                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iks-5W-0BH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -207,7 +204,6 @@
                         <outlet property="imageView" destination="lnq-Ge-YAL" id="dWL-Ku-5Nv"/>
                         <outlet property="shareMeme" destination="mkm-Ie-Yro" id="MR3-dS-Ktn"/>
                         <outlet property="topTextField" destination="1zX-cl-CaN" id="aD5-3K-wBt"/>
-                        <segue destination="GdS-fk-q2o" kind="show" identifier="SentTabBar" id="pW2-bE-CBS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KBu-K2-57w" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -252,9 +248,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="Nzq-QA-idu" kind="show" identifier="MemeEditor" id="67Y-fT-BcD"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fr0-PT-Gez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -286,7 +279,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="hWH-l5-tit">
             <objects>
-                <tabBarController autoresizesArchivedViewToFullSize="NO" id="GdS-fk-q2o" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="SentMemesTabBar" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GdS-fk-q2o" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Yc1-2l-moc"/>
@@ -330,7 +323,7 @@
         <!--Navigation Controller-->
         <scene sceneID="uz2-Vi-kYk">
             <objects>
-                <navigationController storyboardIdentifier="MemeEditor" autoresizesArchivedViewToFullSize="NO" hidesBottomBarWhenPushed="YES" toolbarHidden="NO" id="Nzq-QA-idu" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MemeEditor" autoresizesArchivedViewToFullSize="NO" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" toolbarHidden="NO" id="Nzq-QA-idu" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LLP-Iw-QId">
@@ -354,7 +347,4 @@
         <image name="Collection" width="30" height="30"/>
         <image name="Table" width="30" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="bQL-Gp-6VU"/>
-    </inferredMetricsTieBreakers>
 </document>

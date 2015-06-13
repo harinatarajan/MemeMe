@@ -77,7 +77,7 @@ class ImagePickViewController: UIViewController, UIImagePickerControllerDelegate
         //When bottom comment is being written, shift the view UP in the Y direction
         //equal to the height of the keyboard
         if bottomTextField.isFirstResponder() {
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
 
@@ -85,7 +85,7 @@ class ImagePickViewController: UIViewController, UIImagePickerControllerDelegate
         //When bottom comment is done, shift the view DOWN in the Y direction
         //equal to the height of the keyboard; that is, restore the view.
         if bottomTextField.isFirstResponder() {
-            self.view.frame.origin.y += getKeyboardHeight(notification)
+            view.frame.origin.y += getKeyboardHeight(notification)
         }
     }
     
@@ -191,10 +191,8 @@ class ImagePickViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     func goToSentView() {
-        // Prepare to go to the tab bar view. Clear the bottom bars, they were piling up
-        self.navigationController?.removeFromParentViewController()
-        self.removeFromParentViewController()
-        self.performSegueWithIdentifier("SentTabBar", sender: self)
+        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("SentMemesTabBar") as! UITabBarController
+        self.presentViewController(controller, animated: true, completion: nil)
     }
 
     //When the user presses the cancel button ...

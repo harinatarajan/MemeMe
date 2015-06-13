@@ -48,8 +48,8 @@ class SentMemesCollectionViewController: UICollectionViewController {
     
     //Prepare to go to ImagePickViewController
     func goToMemeEditor() {
-        self.tabBarController?.removeFromParentViewController()
-        self.performSegueWithIdentifier("MemeEditor", sender: self)
+        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditor") as! UINavigationController
+        self.presentViewController(controller, animated: true, completion: nil)
     }
     
     //when the user presses the "+" in the navigation bar ...
